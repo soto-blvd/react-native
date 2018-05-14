@@ -12,9 +12,11 @@
 #import "RCTAdditionAnimatedNode.h"
 #import "RCTAnimatedNode.h"
 #import "RCTAnimationDriver.h"
+#import "RCTClampAnimatedNode.h"
 #import "RCTDiffClampAnimatedNode.h"
 #import "RCTDivisionAnimatedNode.h"
 #import "RCTEventAnimation.h"
+#import "RCTExponentiationAnimatedNode.h"
 #import "RCTFrameAnimation.h"
 #import "RCTDecayAnimation.h"
 #import "RCTInterpolationAnimatedNode.h"
@@ -62,8 +64,10 @@
             @"props" : [RCTPropsAnimatedNode class],
             @"interpolation" : [RCTInterpolationAnimatedNode class],
             @"addition" : [RCTAdditionAnimatedNode class],
+            @"clamp": [RCTClampAnimatedNode class],
             @"diffclamp": [RCTDiffClampAnimatedNode class],
             @"division" : [RCTDivisionAnimatedNode class],
+            @"exponentiation" : [RCTExponentiationAnimatedNode class],
             @"multiplication" : [RCTMultiplicationAnimatedNode class],
             @"modulus" : [RCTModuloAnimatedNode class],
             @"transform" : [RCTTransformAnimatedNode class],

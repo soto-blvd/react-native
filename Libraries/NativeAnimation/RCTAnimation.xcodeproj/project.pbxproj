@@ -123,6 +123,14 @@
 		94C129521D40692B0025F25C /* RCTSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C1294F1D4069170025F25C /* RCTSpringAnimation.m */; };
 		94DA09181DC7971C00AEA8C9 /* RCTNativeAnimatedNodesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DA09171DC7971C00AEA8C9 /* RCTNativeAnimatedNodesManager.m */; };
 		94DAE3F91D7334A70059942F /* RCTModuloAnimatedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAE3F81D7334A70059942F /* RCTModuloAnimatedNode.m */; };
+		FDDF6F5720A9B78900DA3CA5 /* RCTClampAnimatedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDF6F5620A9B78900DA3CA5 /* RCTClampAnimatedNode.m */; };
+		FDDF6F5820A9B78900DA3CA5 /* RCTClampAnimatedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDF6F5620A9B78900DA3CA5 /* RCTClampAnimatedNode.m */; };
+		FDDF6F5A20A9B7A800DA3CA5 /* RCTClampAnimatedNode.h in Headers */ = {isa = PBXBuildFile; fileRef = FDDF6F5920A9B7A800DA3CA5 /* RCTClampAnimatedNode.h */; };
+		FDDF6F5B20A9B7A800DA3CA5 /* RCTClampAnimatedNode.h in Headers */ = {isa = PBXBuildFile; fileRef = FDDF6F5920A9B7A800DA3CA5 /* RCTClampAnimatedNode.h */; };
+		FDDF6F5E20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h in Headers */ = {isa = PBXBuildFile; fileRef = FDDF6F5C20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h */; };
+		FDDF6F5F20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h in Headers */ = {isa = PBXBuildFile; fileRef = FDDF6F5C20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h */; };
+		FDDF6F6020A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDF6F5D20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m */; };
+		FDDF6F6120A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDF6F5D20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -226,6 +234,10 @@
 		94DA09171DC7971C00AEA8C9 /* RCTNativeAnimatedNodesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTNativeAnimatedNodesManager.m; sourceTree = "<group>"; };
 		94DAE3F71D7334A70059942F /* RCTModuloAnimatedNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RCTModuloAnimatedNode.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		94DAE3F81D7334A70059942F /* RCTModuloAnimatedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTModuloAnimatedNode.m; sourceTree = "<group>"; };
+		FDDF6F5620A9B78900DA3CA5 /* RCTClampAnimatedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTClampAnimatedNode.m; sourceTree = "<group>"; };
+		FDDF6F5920A9B7A800DA3CA5 /* RCTClampAnimatedNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTClampAnimatedNode.h; sourceTree = "<group>"; };
+		FDDF6F5C20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTExponentiationAnimatedNode.h; sourceTree = "<group>"; };
+		FDDF6F5D20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTExponentiationAnimatedNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -240,14 +252,18 @@
 		13E501D51D07A6C9005F35D8 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				5C9894931D999639008027DB /* RCTDivisionAnimatedNode.h */,
-				5C9894941D999639008027DB /* RCTDivisionAnimatedNode.m */,
-				193F64F21D776EC6004D1CAA /* RCTDiffClampAnimatedNode.h */,
-				193F64F31D776EC6004D1CAA /* RCTDiffClampAnimatedNode.m */,
 				13E501D61D07A6C9005F35D8 /* RCTAdditionAnimatedNode.h */,
 				13E501D71D07A6C9005F35D8 /* RCTAdditionAnimatedNode.m */,
 				13E501D81D07A6C9005F35D8 /* RCTAnimatedNode.h */,
 				13E501D91D07A6C9005F35D8 /* RCTAnimatedNode.m */,
+				FDDF6F5920A9B7A800DA3CA5 /* RCTClampAnimatedNode.h */,
+				FDDF6F5620A9B78900DA3CA5 /* RCTClampAnimatedNode.m */,
+				193F64F21D776EC6004D1CAA /* RCTDiffClampAnimatedNode.h */,
+				193F64F31D776EC6004D1CAA /* RCTDiffClampAnimatedNode.m */,
+				5C9894931D999639008027DB /* RCTDivisionAnimatedNode.h */,
+				5C9894941D999639008027DB /* RCTDivisionAnimatedNode.m */,
+				FDDF6F5C20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h */,
+				FDDF6F5D20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m */,
 				13E501DC1D07A6C9005F35D8 /* RCTInterpolationAnimatedNode.h */,
 				13E501DD1D07A6C9005F35D8 /* RCTInterpolationAnimatedNode.m */,
 				94DAE3F71D7334A70059942F /* RCTModuloAnimatedNode.h */,
@@ -258,12 +274,12 @@
 				13E501E11D07A6C9005F35D8 /* RCTPropsAnimatedNode.m */,
 				13E501E21D07A6C9005F35D8 /* RCTStyleAnimatedNode.h */,
 				13E501E31D07A6C9005F35D8 /* RCTStyleAnimatedNode.m */,
+				44DB7D932024F74200588FCD /* RCTTrackingAnimatedNode.h */,
+				44DB7D962024F75100588FCD /* RCTTrackingAnimatedNode.m */,
 				13E501E41D07A6C9005F35D8 /* RCTTransformAnimatedNode.h */,
 				13E501E51D07A6C9005F35D8 /* RCTTransformAnimatedNode.m */,
 				13E501E61D07A6C9005F35D8 /* RCTValueAnimatedNode.h */,
 				13E501E71D07A6C9005F35D8 /* RCTValueAnimatedNode.m */,
-				44DB7D932024F74200588FCD /* RCTTrackingAnimatedNode.h */,
-				44DB7D962024F75100588FCD /* RCTTrackingAnimatedNode.m */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -328,7 +344,9 @@
 				192F698E1E823F4A008692C7 /* RCTMultiplicationAnimatedNode.h in Headers */,
 				192F698F1E823F4A008692C7 /* RCTPropsAnimatedNode.h in Headers */,
 				192F69901E823F4A008692C7 /* RCTStyleAnimatedNode.h in Headers */,
+				FDDF6F5F20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h in Headers */,
 				192F69911E823F4A008692C7 /* RCTTransformAnimatedNode.h in Headers */,
+				FDDF6F5B20A9B7A800DA3CA5 /* RCTClampAnimatedNode.h in Headers */,
 				192F69921E823F4A008692C7 /* RCTValueAnimatedNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +373,9 @@
 				1980B7271E80D1C4004DC789 /* RCTMultiplicationAnimatedNode.h in Headers */,
 				1980B7291E80D1C4004DC789 /* RCTPropsAnimatedNode.h in Headers */,
 				1980B72B1E80D1C4004DC789 /* RCTStyleAnimatedNode.h in Headers */,
+				FDDF6F5E20A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.h in Headers */,
 				1980B72D1E80D1C4004DC789 /* RCTTransformAnimatedNode.h in Headers */,
+				FDDF6F5A20A9B7A800DA3CA5 /* RCTClampAnimatedNode.h in Headers */,
 				1980B72F1E80D1C4004DC789 /* RCTValueAnimatedNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,12 +462,14 @@
 				2D3B5EFB1D9B0B4800451313 /* RCTModuloAnimatedNode.m in Sources */,
 				2D3B5EF21D9B0B3100451313 /* RCTAnimationUtils.m in Sources */,
 				2D3B5EF51D9B0B4800451313 /* RCTDivisionAnimatedNode.m in Sources */,
+				FDDF6F5820A9B78900DA3CA5 /* RCTClampAnimatedNode.m in Sources */,
 				2D3B5EF71D9B0B4800451313 /* RCTAdditionAnimatedNode.m in Sources */,
 				19F00F231DC8848E00113FEE /* RCTEventAnimation.m in Sources */,
 				2D3B5EF41D9B0B3700451313 /* RCTNativeAnimatedModule.m in Sources */,
 				2D3B5EF61D9B0B4800451313 /* RCTDiffClampAnimatedNode.m in Sources */,
 				2D3B5EF81D9B0B4800451313 /* RCTAnimatedNode.m in Sources */,
 				2D3B5EFE1D9B0B4800451313 /* RCTStyleAnimatedNode.m in Sources */,
+				FDDF6F6120A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m in Sources */,
 				2D3B5EFA1D9B0B4800451313 /* RCTInterpolationAnimatedNode.m in Sources */,
 				2D3B5EFF1D9B0B4800451313 /* RCTTransformAnimatedNode.m in Sources */,
 				2D3B5EFC1D9B0B4800451313 /* RCTMultiplicationAnimatedNode.m in Sources */,
@@ -468,12 +490,14 @@
 				94C129521D40692B0025F25C /* RCTSpringAnimation.m in Sources */,
 				94DA09181DC7971C00AEA8C9 /* RCTNativeAnimatedNodesManager.m in Sources */,
 				13E501F01D07A6C9005F35D8 /* RCTValueAnimatedNode.m in Sources */,
+				FDDF6F5720A9B78900DA3CA5 /* RCTClampAnimatedNode.m in Sources */,
 				94DAE3F91D7334A70059942F /* RCTModuloAnimatedNode.m in Sources */,
 				193F64F41D776EC6004D1CAA /* RCTDiffClampAnimatedNode.m in Sources */,
 				19F00F221DC8847500113FEE /* RCTEventAnimation.m in Sources */,
 				13E501EE1D07A6C9005F35D8 /* RCTStyleAnimatedNode.m in Sources */,
 				13E501CC1D07A644005F35D8 /* RCTAnimationUtils.m in Sources */,
 				13E501CF1D07A644005F35D8 /* RCTNativeAnimatedModule.m in Sources */,
+				FDDF6F6020A9B91700DA3CA5 /* RCTExponentiationAnimatedNode.m in Sources */,
 				13E501EC1D07A6C9005F35D8 /* RCTMultiplicationAnimatedNode.m in Sources */,
 				13E501ED1D07A6C9005F35D8 /* RCTPropsAnimatedNode.m in Sources */,
 				13E501E91D07A6C9005F35D8 /* RCTAnimatedNode.m in Sources */,

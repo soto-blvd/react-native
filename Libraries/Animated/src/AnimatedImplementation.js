@@ -13,8 +13,10 @@
 
 const {AnimatedEvent, attachNativeEvent} = require('./AnimatedEvent');
 const AnimatedAddition = require('./nodes/AnimatedAddition');
+const AnimatedClamp = require('./nodes/AnimatedClamp');
 const AnimatedDiffClamp = require('./nodes/AnimatedDiffClamp');
 const AnimatedDivision = require('./nodes/AnimatedDivision');
+const AnimatedExponentiation = require('./nodes/AnimatedExponentiation');
 const AnimatedInterpolation = require('./nodes/AnimatedInterpolation');
 const AnimatedModulo = require('./nodes/AnimatedModulo');
 const AnimatedMultiplication = require('./nodes/AnimatedMultiplication');
@@ -47,11 +49,24 @@ export type CompositeAnimation = {
   _isUsingNativeDriver: () => boolean,
 };
 
+const abs = function(
+  a: AnimatedNode | number
+): AnimatedAddition {
+  return new AnimatedExponentiation(AnimatedExponentiation(a, 2), 0.5);
+};
+
 const add = function(
   a: AnimatedNode | number,
   b: AnimatedNode | number,
 ): AnimatedAddition {
   return new AnimatedAddition(a, b);
+};
+
+const subtract = function(
+  a: AnimatedNode | number,
+  b: AnimatedNode | number,
+): AnimatedAddition {
+  return new AnimatedAddition(a, new AnimatedMultiplication(b, -1));
 };
 
 const divide = function(
@@ -68,8 +83,29 @@ const multiply = function(
   return new AnimatedMultiplication(a, b);
 };
 
+const pow = function(
+  a: AnimatedNode | number,
+  b: AnimatedNode | number
+): AnimatedExponentiation {
+  return new AnimatedExponentiation(a, b);
+};
+
+const sqrt = function(
+  a: AnimatedNode | number
+): AnimatedExponentiation {
+  return new AnimatedExponentiation(a, 0.5);
+};
+
 const modulo = function(a: AnimatedNode, modulus: number): AnimatedModulo {
   return new AnimatedModulo(a, modulus);
+};
+
+const clamp = function(
+  a: AnimatedNode,
+  min: AnimatedNode | number,
+  max: AnimatedNode | number,
+): AnimatedClamp {
+  return new AnimatedClamp(a, min, max);
 };
 
 const diffClamp = function(
@@ -561,12 +597,28 @@ module.exports = {
   spring,
 
   /**
+   * Creates a new Animated value by taking the absolute value of another
+   * Animated value.
+   *
+   * See http://facebook.github.io/react-native/docs/animated.html#abs
+   */
+  abs,
+
+  /**
    * Creates a new Animated value composed from two Animated values added
    * together.
    *
    * See http://facebook.github.io/react-native/docs/animated.html#add
    */
   add,
+
+  /**
+   * Creates a new Animated value by subtracting the second value from the
+   * first value.
+   * 
+   * See http://facebook.github.io/react-native/docs/animated.html#subtract
+   */
+  subtract,
 
   /**
    * Creates a new Animated value composed by dividing the first Animated value
@@ -585,12 +637,35 @@ module.exports = {
   multiply,
 
   /**
+   * Creates a new Animated value by raising the first value to the power of
+   * the second value.
+   * 
+   * See http://facebook.github.io/react-native/docs/animated.html#pow
+   */
+  pow,
+
+  /**
+   * Creates a new Animated value by taking the square root of the given value.
+   * 
+   * See http://facebook.github.io/react-native/docs/animated.html#sqrt
+   */
+  sqrt,
+
+  /**
    * Creates a new Animated value that is the (non-negative) modulo of the
    * provided Animated value.
    *
    * See http://facebook.github.io/react-native/docs/animated.html#modulo
    */
   modulo,
+
+  /**
+   * Create a new Animated value that is limited between minimum and
+   * maximum values.
+   *
+   * See http://facebook.github.io/react-native/docs/animated.html#clamp
+   */
+  clamp,
 
   /**
    * Create a new Animated value that is limited between 2 values. It uses the
