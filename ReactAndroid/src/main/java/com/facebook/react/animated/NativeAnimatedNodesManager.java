@@ -93,10 +93,14 @@ import java.util.Queue;
       node = new SubtractionAnimatedNode(config, this);
     } else if ("division".equals(type)) {
       node = new DivisionAnimatedNode(config, this);
+    } else if ("exponentiation".equals(type)) {
+      node = new ExponentiationAnimatedNode(config, this);
     } else if ("multiplication".equals(type)) {
       node = new MultiplicationAnimatedNode(config, this);
     } else if ("modulus".equals(type)) {
       node = new ModulusAnimatedNode(config, this);
+    } else if ("clamp".equals(type)) {
+      node = new ClampAnimatedNode(config, this);
     } else if ("diffclamp".equals(type)) {
       node = new DiffClampAnimatedNode(config, this);
     } else if ("transform".equals(type)) {

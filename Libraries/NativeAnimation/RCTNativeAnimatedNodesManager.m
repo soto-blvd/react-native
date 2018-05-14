@@ -12,11 +12,13 @@
 #import <React/RCTAdditionAnimatedNode.h>
 #import <React/RCTAnimatedNode.h>
 #import <React/RCTAnimationDriver.h>
+#import <React/RCTClampAnimatedNode.h>
+#import <React/RCTDecayAnimation.h>
 #import <React/RCTDiffClampAnimatedNode.h>
 #import <React/RCTDivisionAnimatedNode.h>
 #import <React/RCTEventAnimation.h>
+#import <React/RCTExponentiationAnimatedNode.h>
 #import <React/RCTFrameAnimation.h>
-#import <React/RCTDecayAnimation.h>
 #import <React/RCTInterpolationAnimatedNode.h>
 #import <React/RCTModuloAnimatedNode.h>
 #import <React/RCTMultiplicationAnimatedNode.h>
@@ -24,9 +26,9 @@
 #import <React/RCTSpringAnimation.h>
 #import <React/RCTStyleAnimatedNode.h>
 #import <React/RCTSubtractionAnimatedNode.h>
+#import <React/RCTTrackingAnimatedNode.h>
 #import <React/RCTTransformAnimatedNode.h>
 #import <React/RCTValueAnimatedNode.h>
-#import <React/RCTTrackingAnimatedNode.h>
 
 // We do some normalizing of the event names in RCTEventDispatcher#RCTNormalizeInputEventName.
 // To make things simpler just get rid of the parts we change in the event names we use here.
@@ -87,8 +89,10 @@ static NSString *RCTNormalizeAnimatedEventName(NSString *eventName)
             @"props" : [RCTPropsAnimatedNode class],
             @"interpolation" : [RCTInterpolationAnimatedNode class],
             @"addition" : [RCTAdditionAnimatedNode class],
+            @"clamp": [RCTClampAnimatedNode class],
             @"diffclamp": [RCTDiffClampAnimatedNode class],
             @"division" : [RCTDivisionAnimatedNode class],
+            @"exponentiation" : [RCTExponentiationAnimatedNode class],
             @"multiplication" : [RCTMultiplicationAnimatedNode class],
             @"modulus" : [RCTModuloAnimatedNode class],
             @"subtraction" : [RCTSubtractionAnimatedNode class],
