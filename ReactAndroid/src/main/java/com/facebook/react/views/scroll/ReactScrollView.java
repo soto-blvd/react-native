@@ -193,6 +193,8 @@ public class ReactScrollView extends ScrollView implements ReactClippingViewGrou
         NativeGestureUtil.notifyNativeGestureStarted(this, ev);
         ReactScrollViewHelper.emitScrollBeginDragEvent(this);
         mDragging = true;
+        mFlinging = false;
+        mDoneFlinging = false;
         enableFpsListener();
         return true;
       }
@@ -299,6 +301,11 @@ public class ReactScrollView extends ScrollView implements ReactClippingViewGrou
       Runnable r = new Runnable() {
         @Override
         public void run() {
+          // It's possible the fling was interrupted by the user.
+          if (!mFlinging) {
+            return;
+          }
+
           if (mDoneFlinging) {
             mFlinging = false;
             disableFpsListener();
