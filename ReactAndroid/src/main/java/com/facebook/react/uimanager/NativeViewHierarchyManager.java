@@ -453,11 +453,12 @@ public class NativeViewHierarchyManager {
         if (mLayoutAnimationEnabled
             && mLayoutAnimator.shouldAnimateLayout(viewToRemove)
             && arrayContains(tagsToDelete, viewToRemove.getId())) {
-          // The view will be removed and dropped by the 'delete' layout animation
-          // instead, so do nothing
-        } else {
-          viewManager.removeViewAt(viewToManage, indexToRemove);
+          // Display the view in the parent after removal for the duration of the layout animation,
+          // but pretend that it doesn't exist when calling other ViewGroup methods.
+          viewManager.startViewTransition(viewToManage, viewToRemove);
         }
+
+        viewManager.removeViewAt(viewToManage, indexToRemove);
 
         lastIndexToRemove = indexToRemove;
       }
@@ -487,7 +488,9 @@ public class NativeViewHierarchyManager {
                   // onAnimationEnd is called (indirectly) by Android View Animation.
                   UiThreadUtil.assertOnUiThread();
 
-                  viewManager.removeView(viewToManage, viewToDestroy);
+                  // Already removed from the ViewGroup, we can just end the transition here to
+                  // release the child.
+                  viewManager.endViewTransition(viewToManage, viewToDestroy);
                   dropView(viewToDestroy);
                   pendingDeletionTags.remove(viewToDestroy.getId());
                   if (pendingDeletionTags.isEmpty()) {

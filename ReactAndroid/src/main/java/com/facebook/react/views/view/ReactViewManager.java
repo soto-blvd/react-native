@@ -342,4 +342,24 @@ public class ReactViewManager extends ReactClippingViewManager<ReactViewGroup> {
     float y = PixelUtil.toPixelFromDIP(args.getDouble(1));
     root.drawableHotspotChanged(x, y);
   }
+
+  @Override
+  public void startViewTransition(ReactViewGroup parent, View view) {
+    boolean removeClippedSubviews = parent.getRemoveClippedSubviews();
+    if (removeClippedSubviews) {
+      parent.startViewTransitionWithSubviewClippingEnabled(view);
+    } else {
+      parent.startViewTransition(view);
+    }
+  }
+
+  @Override
+  public void endViewTransition(ReactViewGroup parent, View view) {
+    boolean removeClippedSubviews = parent.getRemoveClippedSubviews();
+    if (removeClippedSubviews) {
+      parent.endViewTransitionWithSubviewClippingEnabled(view);
+    } else {
+      parent.endViewTransition(view);
+    }
+  }
 }
