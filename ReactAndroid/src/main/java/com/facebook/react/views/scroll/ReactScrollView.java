@@ -264,6 +264,12 @@ public class ReactScrollView extends ScrollView
         ReactScrollViewHelper.emitScrollBeginDragEvent(this);
         mDragging = true;
         enableFpsListener();
+        // The user might be interrupting a fling/snap and we need to cancel any ongoing animations.
+        // Mirrors behaviour on iOS by starting a new momentum scroll event series after this drag.
+        if (mPostTouchRunnable != null) {
+          removeCallbacks(mPostTouchRunnable);
+          mPostTouchRunnable = null;
+        }
         return true;
       }
     } catch (IllegalArgumentException e) {
@@ -451,6 +457,12 @@ public class ReactScrollView extends ScrollView
   private void handlePostTouchScrolling(int velocityX, int velocityY) {
     // If we aren't going to do anything (send events or snap to page), we can early exit out.
     if (!mSendMomentumEvents && !mPagingEnabled && !isScrollPerfLoggingEnabled()) {
+      return;
+    }
+
+    // Don't emit momentum events if there's not going to be a momentum scroll, mirrors iOS momentum
+    // scroll behaviour.
+    if (!mPagingEnabled && velocityX == 0 && velocityY == 0) {
       return;
     }
 
