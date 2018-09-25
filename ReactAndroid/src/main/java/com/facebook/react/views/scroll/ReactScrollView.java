@@ -517,35 +517,7 @@ public class ReactScrollView extends ScrollView implements ReactClippingViewGrou
     // Make sure the new offset isn't out of bounds
     targetOffset = Math.min(Math.max(0, targetOffset), maximumOffset);
 
-    // smoothScrollTo will always scroll over 250ms which is often *waaay*
-    // too short and will cause the scrolling to feel almost instant
-    // try to manually interact with OverScroller instead
-    // if velocity is 0 however, fling() won't work, so we want to use smoothScrollTo
-    if (mScroller != null) {
-      mActivelyScrolling = true;
-
-      mScroller.fling(
-        getScrollX(), // startX
-        getScrollY(), // startY
-        // velocity = 0 doesn't work with fling() so we pretend there's a reasonable
-        // initial velocity going on when a touch is released without any movement
-        0, // velocityX
-        velocityY != 0 ? velocityY : targetOffset - getScrollY(), // velocityY
-        0, // minX
-        0, // maxX
-        // setting both minY and maxY to the same value will guarantee that we scroll to it
-        // but using the standard fling-style easing rather than smoothScrollTo's 250ms animation
-        targetOffset, // minY
-        targetOffset, // maxY
-        0, // overX
-        // we only want to allow overscrolling if the final offset is at the very edge of the view
-        (targetOffset == 0 || targetOffset == maximumOffset) ? height / 2 : 0 // overY
-      );
-
-      postInvalidateOnAnimation();
-    } else {
-      smoothScrollTo(getScrollX(), targetOffset);
-    }
+    smoothScrollTo(getScrollX(), targetOffset);
   }
 
   private int getSnapInterval() {

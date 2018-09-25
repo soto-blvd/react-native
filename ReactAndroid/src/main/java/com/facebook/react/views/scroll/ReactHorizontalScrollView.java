@@ -561,35 +561,7 @@ public class ReactHorizontalScrollView extends HorizontalScrollView implements
       velocityX = -velocityX;
     }
 
-    // smoothScrollTo will always scroll over 250ms which is often *waaay*
-    // too short and will cause the scrolling to feel almost instant
-    // try to manually interact with OverScroller instead
-    // if velocity is 0 however, fling() won't work, so we want to use smoothScrollTo
-    if (mScroller != null) {
-      mActivelyScrolling = true;
-
-      mScroller.fling(
-        getScrollX(), // startX
-        getScrollY(), // startY
-        // velocity = 0 doesn't work with fling() so we pretend there's a reasonable
-        // initial velocity going on when a touch is released without any movement
-        velocityX != 0 ? velocityX : targetOffset - getScrollX(), // velocityX
-        0, // velocityY
-        // setting both minX and maxX to the same value will guarantee that we scroll to it
-        // but using the standard fling-style easing rather than smoothScrollTo's 250ms animation
-        targetOffset, // minX
-        targetOffset, // maxX
-        0, // minY
-        0, // maxY
-        // we only want to allow overscrolling if the final offset is at the very edge of the view
-        (targetOffset == 0 || targetOffset == maximumOffset) ? width / 2 : 0, // overX
-        0 // overY
-      );
-
-      postInvalidateOnAnimation();
-    } else {
-      smoothScrollTo(targetOffset, getScrollY());
-    }
+    smoothScrollTo(targetOffset, getScrollY());
   }
 
   @Override
