@@ -53,6 +53,15 @@ const API = {
       NativeAnimatedModule.getValue(tag, saveValueCallback);
     }
   },
+  getState: function(
+    tag: number,
+    callback: (state: { offset: number, value: number }) => void,
+  ): void {
+    invariant(NativeAnimatedModule, 'Native animated module is not available');
+    if (NativeAnimatedModule.getState) {
+      NativeAnimatedModule.getState(tag, callback);
+    }
+  },
   setWaitingForIdentifier: function(id: string): void {
     waitingForQueuedOperations.add(id);
     queueOperations = true;

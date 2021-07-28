@@ -228,6 +228,8 @@ namespace JS {
                     config:(NSDictionary *)config;
 - (void)getValue:(double)tag
 saveValueCallback:(RCTResponseSenderBlock)saveValueCallback;
+- (void)getState:(double)tag
+        callback:(RCTResponseSenderBlock)callback;
 - (void)startListeningToAnimatedNodeValue:(double)tag;
 - (void)stopListeningToAnimatedNodeValue:(double)tag;
 - (void)connectAnimatedNodes:(double)parentTag
