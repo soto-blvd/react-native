@@ -899,4 +899,15 @@ public class NativeAnimatedModule extends NativeAnimatedModuleSpec
       context.removeLifecycleEventListener(this);
     }
   }
+
+  public void getState(final double animatedValueNodeTagDouble, final Callback callback) {
+    final int animatedValueNodeTag = (int) animatedValueNodeTagDouble;
+    addOperation(
+        new UIThreadOperation() {
+          @Override
+          public void execute(NativeAnimatedNodesManager animatedNodesManager) {
+            animatedNodesManager.getState(animatedValueNodeTag, callback);
+          }
+        });
+  }
 }
