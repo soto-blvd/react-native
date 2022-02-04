@@ -267,7 +267,6 @@ public class ReactScrollView extends ScrollView
         // The user might be interrupting a fling/snap and we need to cancel any ongoing animations.
         // Mirrors behaviour on iOS by starting a new momentum scroll event series after this drag.
         if (mPostTouchRunnable != null) {
-          removeCallbacks(mPostTouchRunnable);
           mPostTouchRunnable = null;
         }
         return true;
