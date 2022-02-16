@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import "RCTClampAnimatedNode.h"
+#import <React/RCTClampAnimatedNode.h>
 
 @implementation RCTClampAnimatedNode
 {
